@@ -50,9 +50,9 @@ public class newmocktest {
      public void secondTestCase() {
          driver.get("https://testingmizo.mediknit.org/admin/index.php/courses");
       
-           WebElement createButton = driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div[42]/form/div[1]/div[3]/div/button"));
+           WebElement creatButton = driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div[42]/form/div[1]/div[3]/div/button"));
         
-              createButton.click();
+              creatButton.click();
              
      }
 	
