@@ -1,0 +1,59 @@
+package testingpackage;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class newmocktest {
+
+	 WebDriver driver;
+	   @BeforeSuite
+     public void setUp() {
+                 
+		   System.setProperty( "webdriver.chrome.driver","D:\\chromedriver\\chromedriver.exe");
+         ChromeOptions options = new ChromeOptions();
+       
+         driver = new ChromeDriver(options);
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+         
+         driver.manage().window().maximize();
+           
+          
+     }
+     
+             
+     
+     @Test
+     public void firstTestCase()
+     {    
+         
+          driver.get("https://testingmizo.mediknit.org/admin/");
+        
+          
+          WebElement emailField = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/form/div[1]/input"));
+          emailField.sendKeys("vignesh@enfintechnologies.com");
+         
+          WebElement passwordField1 = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/form/div[2]/input"));
+          passwordField1.sendKeys("Vignesh89@");       
+             
+          WebElement loginButton = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/form/div[3]/input"));
+          loginButton.click();
+     }
+            
+     @Test
+     public void secondTestCase() {
+         driver.get("https://testingmizo.mediknit.org/admin/index.php/courses");
+      
+           WebElement createButton = driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div[42]/form/div[1]/div[3]/div/button"));
+        
+              createButton.click();
+             
+     }
+	
+}
